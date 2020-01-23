@@ -1,0 +1,20 @@
+ion-title {
+    padding: 3% 0 0 3%;
+}
+
+.search-bar {
+    outline: 0;
+    text-align: center;
+    padding: 2% 3%;
+}
+
+.search-bar input {
+    font-size: 0.7em;
+    width: 100%;
+    padding: 3%;
+    border: 1px solid silver;
+    border-radius: 4px;
+    background: url('./../../assets/icon/search-logo.png') no-repeat scroll 7px 7px;
+    background-size: 5%;
+    padding-left: 30px;
+}
