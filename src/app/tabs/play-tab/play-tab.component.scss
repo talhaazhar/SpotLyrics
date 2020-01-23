@@ -1,0 +1,38 @@
+ion-toolbar{
+    --min-height:10%!important;
+  }
+.song-info {
+    display: flex;
+    flex-direction: 'row';
+    border: 0;
+    padding: 0;
+    font-family: "Montserrat", serif;
+    font-size: 12px;
+}
+
+.album-art {
+    max-height: 50px;
+    width: auto;
+}
+
+.text-wrapper {
+    position: relative;
+    padding-top: 5px;
+}
+.trasparent-hack {
+    position: absolute;
+    right: 0;
+    width: 20%;
+}
+
+.play-logo {
+    max-width:45px;
+    height:auto;
+    display: flex;
+}
+
+.play-logo img {
+    padding-right: 8px;
+    margin-top: auto;
+    margin-bottom: auto;
+} 

@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PlayTabPage } from './play-tab.page';
+import { PlayTabComponent } from './play-tab.component';
 
-describe('PlayTabPage', () => {
-  let component: PlayTabPage;
-  let fixture: ComponentFixture<PlayTabPage>;
+describe('PlayTabComponent', () => {
+  let component: PlayTabComponent;
+  let fixture: ComponentFixture<PlayTabComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayTabPage ],
+      declarations: [ PlayTabComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PlayTabPage);
+    fixture = TestBed.createComponent(PlayTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
