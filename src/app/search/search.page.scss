@@ -18,3 +18,30 @@ ion-title {
     background-size: 5%;
     padding-left: 30px;
 }
+
+.album-art {
+    position: absolute;
+    height: auto;
+    width: 70px;
+    right: -20;
+}
+
+
+ion-grid {
+    padding: 0;
+}
+
+ion-col {
+    margin: 5px;
+    height: 80px;
+    border-radius: 5px;
+    padding: 0;
+}
+
+ion-label {
+    height: 100%;
+
+    h2 {
+        padding: 5px;
+    }
+}

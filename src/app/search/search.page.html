@@ -3,10 +3,51 @@
     <ion-title>
       <b>Search</b>
     </ion-title>
-    <div class='search-bar'>
-      <input type="text" placeholder='Artists, songs, or podcasts'>
+    <div class="search-bar">
+      <input type="text" placeholder="Artists, songs, or podcasts">
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Your Top Genre</ion-label>
+    </ion-list-header>
+    <ion-list-header>
+      <ion-label>Browse All</ion-label>
+    </ion-list-header>
+    
+    <div *ngFor="let genre of genreList; let i = index">
+      <ion-item *ngIf="i % 2 == 0" lines="none">
+        <ion-grid>
+          <ion-row class="genre-row">
+            <ion-col [style.background]="colorList[i % colorList.length]"
+                      *ngIf="i < genreList.length">
+              <ion-label>
+                <h2>
+                  <b>{{ genreList[i].name }}</b>
+                </h2>
+                <div class="album-art">
+                  <img src="{{ genreList[i].icon }}">
+                </div>
+              </ion-label>
+            </ion-col>
+            <ion-col [style.background]="colorList[(i + 1) % colorList.length]" 
+                      *ngIf="i + 1 < genreList.length">
+              <ion-label>
+                <h2>
+                  <b>{{ genreList[i + 1].name }}</b>
+                </h2>
+                <div class="album-art">
+                  <img src="{{ genreList[i + 1].icon }}">
+                </div>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

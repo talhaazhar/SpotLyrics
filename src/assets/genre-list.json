@@ -1,0 +1,44 @@
+{
+    "data": [
+        {
+            "name": "Blues",
+            "icon": "https://images-na.ssl-images-amazon.com/images/I/51D52YHKZNL._SX463_BO1,204,203,200_.jpg"
+        },
+        {
+            "name": "Country",
+            "icon": "https://www.billboard.com/files/styles/900_wide/public/media/Wanted-The-Outlaws-Waylon-Jennings-Jessi-Colter-Willie-Nelson-Tompall-Glaser-album-covers-billboard-1000x1000.jpg"
+        },
+        {
+            "name": "Dance",
+            "icon": "https://albumartexchange.com/coverart/gallery/ar/arminvanbuuren_imagine_nze.jpg"
+        },
+        {
+            "name": "Hip-Hop",
+            "icon": "https://miro.medium.com/max/500/1*ZHytsEv0xXodLzXNN4tRDw.jpeg"
+        },
+        {
+            "name": "Jazz",
+            "icon": "http://ecx.images-amazon.com/images/I/514yw9Xx7CL.jpg"
+        },
+        {
+            "name": "Oldies",
+            "icon": "https://www.billboard.com/files/styles/900_wide/public/media/Elvis-Presley-Elvis-Presley-album-covers-billboard-1000x1000.jpg"
+        },
+        {
+            "name": "Pop",
+            "icon": "https://www.billboard.com/files/styles/900_wide/public/media/Lady-Gaga-Fame-Monster-album-covers-billboard-1000x1000.jpg"
+        },
+        {
+            "name": "R&B",
+            "icon": "https://ww1.prweb.com/prfiles/2018/09/14/15764484/gI_108796_DSLowRes.png"
+        },
+        {
+            "name": "Rock",
+            "icon": "https://www.billboard.com/files/styles/900_wide/public/media/Green-Day-American-Idiot-album-covers-billboard-1000x1000.jpg"
+        },
+        {
+            "name": "Techno",
+            "icon": "http://i.imgur.com/gELyrhH.jpg"
+        }     
+    ]
+}
