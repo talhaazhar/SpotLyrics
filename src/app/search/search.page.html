@@ -29,10 +29,10 @@
                 <h2>
                   <b>{{ genreList[i].name }}</b>
                 </h2>
-                <div class="album-art">
-                  <img src="{{ genreList[i].icon }}">
-                </div>
               </ion-label>
+              <div id="album-art">
+                <img src="{{ genreList[i].icon }}">
+              </div>
             </ion-col>
             <ion-col [style.background]="colorList[(i + 1) % colorList.length]" 
                       *ngIf="i + 1 < genreList.length">
@@ -40,10 +40,10 @@
                 <h2>
                   <b>{{ genreList[i + 1].name }}</b>
                 </h2>
-                <div class="album-art">
-                  <img src="{{ genreList[i + 1].icon }}">
-                </div>
               </ion-label>
+              <div id="album-art">
+                <img src="{{ genreList[i + 1].icon }}">
+              </div>
             </ion-col>
           </ion-row>
         </ion-grid>
