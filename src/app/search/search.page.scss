@@ -1,11 +1,11 @@
 ion-title {
-    padding: 3% 0 0 3%;
+    padding: 3% 0 0 2%;
 }
 
 .search-bar {
     outline: 0;
     text-align: center;
-    padding: 2% 3%;
+    padding: 2% 2%;
 }
 
 .search-bar input {
@@ -19,17 +19,26 @@ ion-title {
     padding-left: 30px;
 }
 
+ion-list {
+    padding: 0%;
+    ion-list-header {
+        padding: 2%;
+        font-size: 0.7em;
+        font-weight:bold;
+    }
+}
+
 .album-art {
     width: 50%;
     overflow: hidden;
     position: relative;
 
     img {
-        height: 67px;
+        height: 70%;
         flex: 1;
         position: absolute;
-        right: -7px;
-        bottom: -5px;
+        right: -10px;
+        bottom: -3px;
         transform: rotate(20deg);
         filter: drop-shadow(0px 0px 5px black);      
     }
@@ -49,8 +58,9 @@ ion-col {
 }
 
 ion-label {
-    h2 {
+    h5 {
         padding: 5px 0 0 5px;
         flex: 1;
+
     }
 }

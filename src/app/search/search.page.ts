@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { GenreService } from '../../services/genre.service';
 import { Genre } from '../../providers/Genre';
-import { ColorList } from '../../assets/constants';
+import { ColorList, getLinearBackground } from '../../assets/constants';
+import { CssSelector } from '@angular/compiler';
 
 @Component({
   selector: 'app-search',
@@ -10,10 +11,10 @@ import { ColorList } from '../../assets/constants';
 })
 export class SearchPage {
   
-
+  getLinearBackground: Function = getLinearBackground;
   constructor(private genreService: GenreService) {}
   genreList: Genre[];
-  colorList: string[] = ColorList;
+  colorList: any[] = ColorList;
   
 
   ngOnInit() { 
