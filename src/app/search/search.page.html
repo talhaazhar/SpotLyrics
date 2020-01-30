@@ -20,7 +20,7 @@
     </ion-list-header>
     
     <div *ngFor="let genre of genreList; let i = index">
-      <ion-item *ngIf="i % 2 == 0" lines="none">
+      <ion-item no-padding *ngIf="i % 2 == 0" lines="none">
         <ion-grid>
           <ion-row class="genre-row">
             <ion-col [ngStyle]="getLinearBackground(colorList[(i) % colorList.length].rgba)"
@@ -36,7 +36,7 @@
             </ion-col>
             <ion-col [ngStyle]="getLinearBackground(colorList[(i + 1) % colorList.length].rgba)"
                       *ngIf="i + 1 < genreList.length">
-              <ion-label>
+              <ion-label text-wrap>
                 <h5>
                   <b>{{ genreList[i + 1].name }}</b>
                 </h5>

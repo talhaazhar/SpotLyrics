@@ -26,13 +26,14 @@ ion-toolbar{
 }
 
 .play-logo {
-    max-width:45px;
+    max-width: 35px;
     height:auto;
     display: flex;
-}
 
-.play-logo img {
-    padding-right: 8px;
-    margin-top: auto;
-    margin-bottom: auto;
-} 
+    ion-icon {
+        padding-right: 8px;
+        padding-left: 4px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
