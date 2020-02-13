@@ -4,21 +4,21 @@ import { IonicModule } from '@ionic/angular';
 import { SearchPage } from './search.page';
 
 describe('Tab2Page', () => {
-  let component: SearchPage;
-  let fixture: ComponentFixture<SearchPage>;
+	let component: SearchPage;
+	let fixture: ComponentFixture<SearchPage>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [SearchPage],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [SearchPage],
+			imports: [IonicModule.forRoot()]
+		}).compileComponents();
 
-    fixture = TestBed.createComponent(SearchPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+		fixture = TestBed.createComponent(SearchPage);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	}));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

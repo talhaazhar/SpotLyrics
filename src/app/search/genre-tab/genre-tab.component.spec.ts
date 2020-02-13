@@ -4,21 +4,21 @@ import { IonicModule } from '@ionic/angular';
 import { GenreTabComponent } from './genre-tab.component';
 
 describe('GenreTabComponent', () => {
-  let component: GenreTabComponent;
-  let fixture: ComponentFixture<GenreTabComponent>;
+	let component: GenreTabComponent;
+	let fixture: ComponentFixture<GenreTabComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ GenreTabComponent ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			declarations: [ GenreTabComponent ],
+			imports: [IonicModule.forRoot()]
+		}).compileComponents();
 
-    fixture = TestBed.createComponent(GenreTabComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+		fixture = TestBed.createComponent(GenreTabComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	}));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

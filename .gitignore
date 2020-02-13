@@ -73,3 +73,6 @@ angular/build/
 *.perspectivev3
 *.pbxuser
 platforms
+
+# API
+environment.ts

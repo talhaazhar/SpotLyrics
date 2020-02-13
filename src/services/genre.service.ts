@@ -7,28 +7,28 @@ import _ from 'lodash';
 
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class GenreService {
-  genreCollection: Genre[] = [];
+	genreCollection: Genre[] = [];
 
-  constructor() {
-    const dummyDataRequest: any = (data as any).default;
-    const genreData = _.get(dummyDataRequest, 'data', []);
+	constructor() {
+		const dummyDataRequest: any = (data as any).default;
+		const genreData = _.get(dummyDataRequest, 'data', []);
 
-    var i;
-    for (i = 0; i < genreData.length; i++) {
-      const genreObject = new Genre(genreData[i].name, genreData[i].icon);
-      this.genreCollection.push(genreObject)
-    };
-  }
+		var i;
+		for (i = 0; i < genreData.length; i++) {
+			const genreObject = new Genre(genreData[i].name, genreData[i].icon);
+			this.genreCollection.push(genreObject)
+		};
+	}
 
-  getTopGenre() {
+	getTopGenre() {
 
-  }
+	}
 
-  getGenreList(): Observable<Genre[]> {
-    return of(this.genreCollection);
-  }
+	getGenreList(): Observable<Genre[]> {
+		return of(this.genreCollection);
+	}
 
 }

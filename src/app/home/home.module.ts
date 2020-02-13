@@ -6,12 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: HomePage }])
-  ],
-  declarations: [HomePage]
+	imports: [
+		IonicModule,
+		CommonModule,
+		FormsModule,
+		RouterModule.forChild([{ path: '', component: HomePage }])
+	],
+	declarations: [HomePage]
 })
 export class HomePageModule {}

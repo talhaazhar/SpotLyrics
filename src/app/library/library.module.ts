@@ -6,12 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { LibraryPage } from './library.page';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: LibraryPage }])
-  ],
-  declarations: [LibraryPage]
+	imports: [
+		IonicModule,
+		CommonModule,
+		FormsModule,
+		RouterModule.forChild([{ path: '', component: LibraryPage }])
+	],
+	declarations: [LibraryPage]
 })
 export class LibraryPageModule {}

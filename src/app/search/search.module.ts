@@ -7,15 +7,15 @@ import { SearchPage } from './search.page';
 import { GenreTabComponent } from './genre-tab/genre-tab.component';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: SearchPage }])
-  ],
-  declarations: [
-    SearchPage,
-    GenreTabComponent
-  ]
+	imports: [
+		IonicModule,
+		CommonModule,
+		FormsModule,
+		RouterModule.forChild([{ path: '', component: SearchPage }])
+	],
+	declarations: [
+		SearchPage,
+		GenreTabComponent
+	]
 })
 export class SearchPageModule {}
