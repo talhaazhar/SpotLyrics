@@ -1,13 +1,13 @@
 import { Url } from 'url';
+import { IBaseGenre } from '../common/Interfaces';
 
-export class Genre {
+export class Genre implements IBaseGenre {
 	public name: string;
 	public icon: Url;
 	private clickCount: number;
 
 	constructor(name: string, iconURL: string) {
 		this.name = name;
-		console.log(iconURL);
 		this.icon = new URL(iconURL);
 		this.clickCount = 0;
 	}
@@ -16,7 +16,7 @@ export class Genre {
 		return this.clickCount;
 	}
 
-	public addCount(): void {
+	protected addCount(): void {
 		this.clickCount += 1;
 	}
 }

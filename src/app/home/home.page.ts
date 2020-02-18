@@ -10,7 +10,7 @@ export class HomePage {
     constructor(private apiService: ApiService) {}
 
     alert() {
-        this.apiService.getAllTodos().subscribe((data: Object[]) => {
+        this.apiService.getSongByName("love").subscribe((data: Object[]) => {
             console.log(data);
         });
     }
