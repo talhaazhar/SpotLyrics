@@ -1,12 +1,12 @@
-ion-toolbar{
-    --min-height:10%!important;
-  }
+ion-toolbar {
+    --min-height: 10% !important;
+}
 .song-info {
     display: flex;
     flex-direction: 'row';
     border: 0;
     padding: 0;
-    font-family: "Montserrat", serif;
+    font-family: 'Montserrat', serif;
     font-size: 12px;
 }
 
@@ -29,7 +29,7 @@ ion-toolbar{
 
 .play-logo {
     max-width: 35px;
-    height:auto;
+    height: auto;
     display: flex;
 
     ion-icon {
@@ -41,8 +41,25 @@ ion-toolbar{
 }
 
 .marquee {
-  width: 300px;
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background: #ccc;
+    position: relative;
+    padding-top: 5px;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.marquee span {
+    display: inline-block;
+    animation: marquee 9s linear infinite;
+    animation-delay: 5s;
+}
+
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    20%   { transform: translate(-100%, 0); }
+    50%  { transform: translate(220%, 0);
+            opacity: 0 }
+    100% { transform: translate(0, 0); }
 }

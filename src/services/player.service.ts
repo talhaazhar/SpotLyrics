@@ -21,7 +21,7 @@ export class PlayerService {
 		this.currentTrackObserver.next(this.currentTrack);
 	}
 	
-	getSongLyrics() {
+	fetchSongLyrics() {
 		
 	}
 
