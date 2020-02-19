@@ -1,7 +1,7 @@
 import { Url } from 'url';
 
 export interface ICacheObject {
-    data: any;
+    data: string;
     fetchTime: number;
 }
 
