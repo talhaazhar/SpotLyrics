@@ -19,6 +19,26 @@ ion-title {
     padding-left: 30px;
 }
 
+.search-result-tab {
+    display: flex;
+    padding: 5px 0;
+
+    img {
+        height: 43px;
+    }
+
+    .search-result-text {
+        padding: 3px;
+        font-weight: bold;
+        ion-label:nth-child(2) {
+            font-weight: normal;
+            color: grey;
+            font-size: 13px;
+            padding-top: 2px;
+        }
+    }
+}
+
 ion-list {
     padding: 0 3%;
     ion-list-header {
@@ -28,7 +48,7 @@ ion-list {
     }
 }
 
-ion-item{
+ion-item {
     --inner-padding-end: 0px;
 }
 
@@ -38,7 +58,7 @@ ion-grid {
 
     ion-col:nth-child(2) {
         margin-left: 10px;
-      }
+    }
 }
 
 ion-col {

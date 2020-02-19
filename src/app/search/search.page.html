@@ -1,39 +1,63 @@
 <ion-header no-border>
-  <ion-toolbar>
-    <ion-title>
-      <b>Search</b>
-    </ion-title>
-    <div class="search-bar">
-      <input type="text" placeholder="Artists, songs, or podcasts">
-    </div>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            <b>Search</b>
+        </ion-title>
+        <div class="search-bar">
+            <input
+                type="text"
+                [(ngModel)]="searchQuery"
+                (click)="click_bar()"
+                (ionCancel)="onCancel()"
+                (ngModelChange)="change_query($event)"
+                showCancelButton="focus"
+                placeholder="Artists, songs, or podcasts"
+            />
+        </div>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-list>
-    <ion-list-header>
-      <ion-label>Your Top Genre</ion-label>
-    </ion-list-header>
-    <ion-list-header>
-      <ion-label>Browse All</ion-label>
-    </ion-list-header>
-    
-    <div *ngFor="let genre of genreList; let i = index">
-      <ion-item class="ion-no-padding" *ngIf="i % 2 == 0" lines="none">
-        <ion-grid>
-          <ion-row class="genre-row">
-            <ion-col [ngStyle]="getLinearBackground(colorList[(i) % colorList.length].rgba)"
-                      *ngIf="i < genreList.length">
-              <genre-tab [genre]="genreList[i]"></genre-tab>
-            </ion-col>
-            <ion-col [ngStyle]="getLinearBackground(colorList[(i + 1) % colorList.length].rgba)"
-                      *ngIf="i + 1 < genreList.length">
-              <genre-tab [genre]="genreList[i + 1]"></genre-tab>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
+    <div *ngIf="show_list">
+        <ion-list>
+            <ion-item class="ion-no-padding" *ngFor="let item of list_to_show; let i = index">
+                <div class="search-result-tab" (click)="click_item(item)">
+                    <img src="{{ item.album_coverart_100x100 || 'https://dalelyles.com/musicmp3s/no_cover.jpg'}}" />
+                  <div class="search-result-text">
+                      <ion-label>{{ item.track_name }}</ion-label>
+                      <ion-label>{{ item.artist_name }}</ion-label>
+                  </div>
+                </div>
+            </ion-item>
+        </ion-list>
     </div>
-  </ion-list>
+    <ion-list *ngIf="!show_list">
+        <ion-list-header>
+            <ion-label>Your Top Genre</ion-label>
+        </ion-list-header>
+        <ion-list-header>
+            <ion-label>Browse All</ion-label>
+        </ion-list-header>
+
+        <div *ngFor="let genre of genreList; let i = index">
+            <ion-item class="ion-no-padding" *ngIf="i % 2 == 0" lines="none">
+                <ion-grid>
+                    <ion-row class="genre-row">
+                        <ion-col
+                            [ngStyle]="getLinearBackground(colorList[(i) % colorList.length].rgba)"
+                            *ngIf="i < genreList.length"
+                        >
+                            <genre-tab [genre]="genreList[i]"></genre-tab>
+                        </ion-col>
+                        <ion-col
+                            [ngStyle]="getLinearBackground(colorList[(i + 1) % colorList.length].rgba)"
+                            *ngIf="i + 1 < genreList.length"
+                        >
+                            <genre-tab [genre]="genreList[i + 1]"></genre-tab>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </div>
+    </ion-list>
 </ion-content>

@@ -2,11 +2,9 @@
 <ion-footer>
   <ion-toolbar no-border>
     <div class="song-info">
-      <img class="album-art" src="https://images.rapgenius.com/797d59cbc13dfd824c1e40ad64e7286b.400x400x1.jpg" alt="Eminem">
+      <img class="album-art" src="{{ currentTrack?.album_coverart_100x100 || 'https://dalelyles.com/musicmp3s/no_cover.jpg'}}" />
       <div class="text-wrapper">
-        <marquee behavior="scroll" scrollamount="6">
-          A scrolling text created with HTML Marquee element.
-        </marquee>
+        <div class="marquee">jQuery marquee is the best <b>marquee</b> plugin in the world</div>
         <img class="trasparent-hack" src="../../assets/icon/transparent-icon.png" alt="PlayButton">
       </div>
       <div class="play-logo">

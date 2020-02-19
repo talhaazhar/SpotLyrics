@@ -18,7 +18,9 @@ ion-toolbar{
 .text-wrapper {
     position: relative;
     padding-top: 5px;
+    flex-grow: 1;
 }
+
 .trasparent-hack {
     position: absolute;
     right: 0;
@@ -36,4 +38,11 @@ ion-toolbar{
         margin-top: auto;
         margin-bottom: auto;
     }
+}
+
+.marquee {
+  width: 300px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background: #ccc;
 }

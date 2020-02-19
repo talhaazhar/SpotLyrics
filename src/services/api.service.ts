@@ -25,31 +25,22 @@ export class ApiService {
         this.headers = headers;
     }
 
-    public getSongByName(trackName: string): Observable<IGetSongNameBody | Observable<never>> {
-        const data: IGetSongName = {
-            apikey: API_KEY,
-            format: 'json',
-            callback: 'callback',
-            q_track: trackName,
-            quorum_factor: 1,
-        };
-
-        const query = buildQuery(data);
-        const fetchURL: string = API_URL + 'track.search?' + query;
+    private fetchMusixMatch<T>(queryURL: string, parameters: any): Observable<T | Observable<never>> {
+        const query = buildQuery(parameters);
+        const fetchURL: string = API_URL + queryURL + query;
 
         const cache = cachedFetch(fetchURL, 150);
         if (cache) {
-            const cacheData: IResponse<IGetSongNameBody> = JSON.parse(cache);
+            const cacheData: IResponse<T> = JSON.parse(cache);
             if (cacheData != null) {
                 return of(cacheData.message.body);
             }
         }
-        console.log("HEREE");
-        
+
         return this.httpClient.get(fetchURL, { headers: this.headers }).pipe(
-            map((data: IResponse<IGetSongNameBody>) => {
+            map((data: IResponse<T>) => {
                 if (data.message.header.status_code !== 200) {
-                    return this.throwError(data.message.header, 'Song not found!');
+                    return this.throwError(data.message.header, 'Error in API CALL!');
                 }
 
                 const cacheObject: ICacheObject = {
@@ -71,4 +62,20 @@ export class ApiService {
         console.error('ApiService::handleError', error);
         return Observable.throw(error);
     }
+
+    public searchTrack(trackName: string) {
+        const queryURL: string = "track.search?";
+        const parameters: IGetSongName = {
+            apikey: API_KEY,
+            format: 'json',
+            callback: 'callback',
+            q_track: trackName,
+            quorum_factor: 1,
+            has_lyrics: 1,
+            s_track_rating: 'desc',
+        };
+        return this.fetchMusixMatch<IGetSongNameBody>(queryURL, parameters);
+    }
+
+    
 }

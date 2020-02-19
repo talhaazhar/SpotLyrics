@@ -18,6 +18,8 @@ export interface IGetSongName {
     callback: string;
     q_track: string;
     quorum_factor: number;
+    has_lyrics: number;
+    s_track_rating: string;
 }
 
 export interface IResponse<T> {
