@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { GenreService } from '../../services/genre.service';
 import { Genre } from '../../providers/Genre';
-import { ColorList } from '../../assets/constants';
+import { ColorList } from '../../common/constants';
 import { getLinearBackground } from '../../common/utils';
 
 @Component({

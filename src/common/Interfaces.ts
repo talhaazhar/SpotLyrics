@@ -1,5 +1,10 @@
 import { Url } from 'url';
 
+export interface ICacheObject {
+    data: any;
+    fetchTime: number;
+}
+
 export interface IBaseGenre {
     name: string;
     icon: Url;
@@ -15,13 +20,13 @@ export interface IGetSongName {
     quorum_factor: number;
 }
 
-export interface IResponse {
-    message: IMessage;
+export interface IResponse<T> {
+    message: IMessage<T>;
 }
 
-export interface IMessage {
+export interface IMessage<T> {
     header: IHeader;
-    body: IGetSongNameBody;
+    body: T;
 }
 
 export interface IHeader {

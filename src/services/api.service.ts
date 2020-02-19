@@ -6,7 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
 import { buildQuery } from '../common/utils';
-import { IGetSongName, dat } from '../common/Interfaces'
+import { IGetSongName, IResponse, IGetSongNameBody } from '../common/Interfaces';
 
 // @ts-ignore
 const oauthSignature = require('oauth-signature');
@@ -34,23 +34,26 @@ export class ApiService {
             callback: 'callback',
             q_track: trackName,
             quorum_factor: 1,
-        }
+        };
         const query = buildQuery(data);
 
         return this.httpClient
-            .get(API_URL + 'track.searchw?' + query, { headers: this.headers })
+            .get(API_URL + 'track.search?' + query, { headers: this.headers })
             .pipe(
-                map((data: dat) => {
-                    console.log(data.message.header);
+                map((data: IResponse<IGetSongNameBody>) => {
+                    if (data.message.header.status_code !== 200) {
+                        return this.throwError(data.message.header, 'Song not found!');
+                    }
                     return data;
                 }),
                 catchError(error => {
-                    return this.throwError('Song not found!');
+                    return this.throwError(error, 'Song not found!');
                 })
             );
     }
 
-    private throwError(error: Response | any) {
+    private throwError(error: Response | any, customErrorString: string) {
+        console.error('ERRROR', customErrorString);
         console.error('ApiService::handleError', error);
         return Observable.throw(error);
     }

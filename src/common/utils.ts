@@ -1,16 +1,18 @@
-export function buildQuery(data: Object): string {
+import { ICacheObject } from './Interfaces';
+import { defaultCacheExpiry } from './constants';
 
-    if (typeof (data) === 'string') return data;
+export function buildQuery(data: Object): string {
+    if (typeof data === 'string') return data;
 
     var query: string[] = [];
-	for (var key in data) {
-		if (data.hasOwnProperty(key)) {
-			query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
-		}
-	}
+    for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+            query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+        }
+    }
 
     return query.join('&');
-};
+}
 
 export function getLinearBackground(color: number[]): any {
     const style = {
@@ -20,4 +22,21 @@ export function getLinearBackground(color: number[]): any {
     };
 
     return style;
+}
+
+export function cachedFetch(url: string, expiry: number = defaultCacheExpiry) {
+    let cacheKey = url;
+    let cached: string = localStorage.getItem(cacheKey);
+    let cacheObject: ICacheObject = JSON.parse(cached);
+    let whenCached: number = cacheObject.fetchTime;
+
+    if (cacheObject !== null && whenCached !== null) {
+        let age = (Date.now() - whenCached) / 1000;
+        if (age < expiry) {
+            return Promise.resolve(cacheObject);
+        } else {
+            localStorage.removeItem(cacheKey);
+            localStorage.removeItem(cacheKey + ':ts');
+        }
+    }
 }
