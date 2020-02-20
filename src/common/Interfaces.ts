@@ -22,6 +22,13 @@ export interface IGetSongName {
     s_track_rating: string;
 }
 
+export interface IGetLyrics {
+    apikey: string;
+    format: string;
+    callback: string;
+    track_id: number;
+}
+
 export interface IResponse<T> {
     message: IMessage<T>;
 }
@@ -91,4 +98,17 @@ export interface IMusicGenre {
     music_genre_name: string;
     music_genre_name_extended: string;
     music_genre_vanity: string;
+}
+
+export interface IGetLyricsBody {
+    lyrics: ILyrics;
+}
+export interface ILyrics {
+    lyrics_id: number;
+    explicit: number;
+    lyrics_body: string;
+    script_tracking_url: string;
+    pixel_tracking_url: string;
+    lyrics_copyright: string;
+    updated_time: string;
 }

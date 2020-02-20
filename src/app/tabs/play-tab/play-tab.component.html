@@ -1,17 +1,26 @@
 <ion-progress-bar value="0.7"></ion-progress-bar>
 <ion-footer>
-  <ion-toolbar no-border>
-    <div class="song-info">
-      <img class="album-art" src="{{ item?.album_coverart_100x100 || 'https://dalelyles.com/musicmp3s/no_cover.jpg'}}" />
-      <div class="text-wrapper">
-        <div class="marquee">
-          <span>{{currentTrack?.track_name || "No Song Selected"}}</span>
+    <ion-toolbar no-border>
+        <div class="song-info">
+            <img
+                class="album-art"
+                src="{{
+                    item?.album_coverart_100x100 || 'https://dalelyles.com/musicmp3s/no_cover.jpg'
+                }}"
+            />
+            <div class="text-wrapper">
+                <div class="marquee">
+                    <span>{{ currentTrack?.track_name || 'No Song Selected' }}</span>
+                </div>
+            </div>
+            <img
+                class="trasparent-hack"
+                src="../../assets/icon/transparent-icon.png"
+                alt="PlayButton"
+            />
+            <a class="play-logo" [routerLink]="['lyrics-tab']">
+                <ion-icon name="play" size="large"></ion-icon>
+            </a>
         </div>
-      </div>
-      <img class="trasparent-hack" src="../../assets/icon/transparent-icon.png" alt="PlayButton">
-      <div class="play-logo">
-        <ion-icon name="play" size="large"></ion-icon>
-      </div>
-    </div>
-  </ion-toolbar>
+    </ion-toolbar>
 </ion-footer>

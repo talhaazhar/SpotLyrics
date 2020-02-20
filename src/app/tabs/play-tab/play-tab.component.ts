@@ -10,7 +10,6 @@ import { ITrack } from '../../../common/Interfaces';
     templateUrl: './play-tab.component.html',
     styleUrls: ['./play-tab.component.scss'],
 })
-
 export class PlayTabComponent implements OnInit {
     currentTrack: ITrack = null;
     trackLyrics = null;

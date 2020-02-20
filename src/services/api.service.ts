@@ -6,7 +6,14 @@ import { map, catchError } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
 import { buildQuery, cachedFetch } from '../common/utils';
-import { IGetSongName, IResponse, IGetSongNameBody, ICacheObject } from '../common/Interfaces';
+import {
+    IGetSongName,
+    IResponse,
+    IGetSongNameBody,
+    ICacheObject,
+    IGetLyrics,
+    IGetLyricsBody,
+} from '../common/Interfaces';
 
 const CORS_HOST: string = 'https://cors-anywhere.herokuapp.com/'; // a little hack, not good for prod.
 const API_URL: string = CORS_HOST + 'https://api.musixmatch.com/ws/1.1/';
@@ -25,7 +32,10 @@ export class ApiService {
         this.headers = headers;
     }
 
-    private fetchMusixMatch<T>(queryURL: string, parameters: any): Observable<T | Observable<never>> {
+    private fetchMusixMatch<T>(
+        queryURL: string,
+        parameters: any
+    ): Observable<T | Observable<never>> {
         const query = buildQuery(parameters);
         const fetchURL: string = API_URL + queryURL + query;
 
@@ -45,8 +55,8 @@ export class ApiService {
 
                 const cacheObject: ICacheObject = {
                     data: JSON.stringify(data),
-                    fetchTime: Date.now()
-                }
+                    fetchTime: Date.now(),
+                };
 
                 localStorage.setItem(fetchURL, JSON.stringify(cacheObject));
                 return data.message.body;
@@ -64,7 +74,7 @@ export class ApiService {
     }
 
     public searchTrack(trackName: string) {
-        const queryURL: string = "track.search?";
+        const queryURL: string = 'track.search?';
         const parameters: IGetSongName = {
             apikey: API_KEY,
             format: 'json',
@@ -77,5 +87,14 @@ export class ApiService {
         return this.fetchMusixMatch<IGetSongNameBody>(queryURL, parameters);
     }
 
-    
+    public fetchLyrics(trackID: number) {
+        const queryURL: string = 'track.search?';
+        const parameters: IGetLyrics = {
+            apikey: API_KEY,
+            format: 'json',
+            callback: 'callback',
+            track_id: trackID,
+        };
+        return this.fetchMusixMatch<IGetLyricsBody>(queryURL, parameters);
+    }
 }
