@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
+import { RoutestackService } from '../../services/routestack.service';
 
 @Component({
     selector: 'app-lyrics',
@@ -7,7 +8,16 @@ import { PlayerService } from '../../services/player.service';
     styleUrls: ['./lyrics.page.scss'],
 })
 export class LyricsPage implements OnInit {
-    constructor(private playerService: PlayerService) {}
+    
+    constructor(
+        private playerService: PlayerService,
+        private routestackService: RoutestackService
+    ) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
+
+    onClose() {
+        return this.routestackService.getPreviousUrl();
+    }
 }
