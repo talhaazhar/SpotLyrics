@@ -28,7 +28,7 @@ export class PlayerService {
         this.emitTrack();
     }
 
-    public getLyricsId() {
+    public getCurrentTrackId() {
         return this.currentTrack.track_id;
     }
 }

@@ -88,7 +88,7 @@ export class ApiService {
     }
 
     public fetchLyrics(trackID: number) {
-        const queryURL: string = 'track.search?';
+        const queryURL: string = 'track.lyrics.get?';
         const parameters: IGetLyrics = {
             apikey: API_KEY,
             format: 'json',

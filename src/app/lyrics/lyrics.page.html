@@ -2,12 +2,13 @@
   <ion-toolbar>
     <div class="lyrics-tab">
       <h3>Lyrics</h3>
-      <a class="close-logo" [routerLink]="[onClose()]">
-        <ion-icon ios="ios-close" md="md-close"></ion-icon>
-      </a>
-    </div>
+        <a class="close-logo" [routerLink]="[onClose()]">
+          <ion-icon style="zoom: 1.5;" ios="ios-close" md="md-close"></ion-icon>
+        </a>
+      </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  {{fetchLyrics()}}
 </ion-content>
