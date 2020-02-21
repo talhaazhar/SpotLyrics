@@ -12,13 +12,12 @@ import { IGetLyricsBody } from '../../common/Interfaces';
     styleUrls: ['./lyrics.page.scss'],
 })
 export class LyricsPage implements OnInit {
-    
-    lyrics: string = "Not Available";
+    lyrics: string = 'Not Available';
 
     constructor(
         private apiService: ApiService,
         private playerService: PlayerService,
-        private routestackService: RoutestackService
+        private routestackService: RoutestackService,
     ) {}
 
     ngOnInit() {

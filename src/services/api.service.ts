@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LoadingController } from '@ionic/angular';
 
 import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, finalize, catchError } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
 import { buildQuery, cachedFetch } from '../common/utils';
@@ -24,7 +25,8 @@ const API_KEY: string = environment.apiKey;
 })
 export class ApiService {
     headers = null;
-    constructor(private httpClient: HttpClient) {
+    loadingIndicator: any;
+    constructor(private httpClient: HttpClient, public loadingController: LoadingController) {
         var headers = new HttpHeaders();
         headers.append('Accept', 'application/json');
         headers.append('Content-Type', 'application/json');
@@ -39,15 +41,20 @@ export class ApiService {
         const query = buildQuery(parameters);
         const fetchURL: string = API_URL + queryURL + query;
 
+        this.loadingIndicator && this.loadingIndicator.present();
         const cache = cachedFetch(fetchURL, 150);
         if (cache) {
             const cacheData: IResponse<T> = JSON.parse(cache);
             if (cacheData != null) {
+                this.loadingIndicator && this.loadingIndicator.dismiss();
                 return of(cacheData.message.body);
             }
         }
-
+        
         return this.httpClient.get(fetchURL, { headers: this.headers }).pipe(
+            finalize(async () => {
+                this.loadingIndicator && this.loadingIndicator.dismiss();
+            }),
             map((data: IResponse<T>) => {
                 if (data.message.header.status_code !== 200) {
                     return this.throwError(data.message.header, 'Error in API CALL!');
@@ -88,6 +95,8 @@ export class ApiService {
     }
 
     public fetchLyrics(trackID: number) {
+        this.presentLoading();
+        LoadingController;
         const queryURL: string = 'track.lyrics.get?';
         const parameters: IGetLyrics = {
             apikey: API_KEY,
@@ -96,5 +105,12 @@ export class ApiService {
             track_id: trackID,
         };
         return this.fetchMusixMatch<IGetLyricsBody>(queryURL, parameters);
+    }
+
+    async presentLoading() {
+        // Prepare a loading controller
+        this.loadingIndicator = await this.loadingController.create({
+            message: 'Loading...',
+        });
     }
 }
