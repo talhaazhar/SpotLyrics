@@ -21,8 +21,11 @@ Angular + Ionic project to replicate the Spotify Mobile UI, however, renders the
 
 ## Installation
 
+(NOTE: Please get an API Key from *MusixMatch*, and add it to the `src/environment.ts` file.
 1. Clone repo and run 'npm install'
+
 2. Run `ionic serve -l` in the repo directory.
+
 3. Open [http://localhost:8200](http://localhost:8200) to view it in the browser.
 
   ### Build for Android:
