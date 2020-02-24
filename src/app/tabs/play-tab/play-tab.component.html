@@ -9,8 +9,11 @@
                 }}"
             />
             <div class="text-wrapper">
-                <div class="marquee">
-                    <span>{{ currentTrack?.track_name || 'No Song Selected' }}</span>
+                <div class="no-marquee">
+                    <span>
+                        <b>{{ currentTrack?.track_name || 'No Song Selected' }}</b>
+                        {{ currentTrack ? "• " + currentTrack.artist_name : " " }}
+                    </span>
                 </div>
             </div>
             <img

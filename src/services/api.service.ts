@@ -41,7 +41,6 @@ export class ApiService {
         const query = buildQuery(parameters);
         const fetchURL: string = API_URL + queryURL + query;
 
-        this.loadingIndicator && this.loadingIndicator.present();
         const cache = cachedFetch(fetchURL, 150);
         if (cache) {
             const cacheData: IResponse<T> = JSON.parse(cache);
@@ -50,10 +49,12 @@ export class ApiService {
                 return of(cacheData.message.body);
             }
         }
-        
+
         return this.httpClient.get(fetchURL, { headers: this.headers }).pipe(
             finalize(async () => {
-                this.loadingIndicator && this.loadingIndicator.dismiss();
+                setTimeout(async () => {
+                    (await this.loadingIndicator) && this.loadingIndicator.dismiss();
+                }, 800);
             }),
             map((data: IResponse<T>) => {
                 if (data.message.header.status_code !== 200) {
@@ -69,6 +70,7 @@ export class ApiService {
                 return data.message.body;
             }),
             catchError(error => {
+                this.loadingIndicator && this.loadingIndicator.dismiss();
                 return this.throwError(error, 'Song not found!');
             })
         );
@@ -112,5 +114,7 @@ export class ApiService {
         this.loadingIndicator = await this.loadingController.create({
             message: 'Loading...',
         });
+
+        await this.loadingIndicator.present();
     }
 }

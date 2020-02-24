@@ -7,7 +7,21 @@
     }
 }
 
+.lyrics-data {
+    padding: 0 3%;
+    
+    h6 {
+        margin: 0;
+        color: grey;
+    }
+}
+
 .close-logo {
     display: flex;
     align-items: center;
+}
+
+.lyrics-text {
+    white-space: pre-wrap;
+    text-align: center;
 }

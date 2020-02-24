@@ -12,7 +12,9 @@ import { IGetLyricsBody } from '../../common/Interfaces';
     styleUrls: ['./lyrics.page.scss'],
 })
 export class LyricsPage implements OnInit {
-    lyrics: string = 'Not Available';
+    lyrics: string = 'No Lyrics Available';
+    songName: string;
+    artistName: string;
 
     constructor(
         private apiService: ApiService,
@@ -21,6 +23,10 @@ export class LyricsPage implements OnInit {
     ) {}
 
     ngOnInit() {
+        
+    }
+
+    ionViewWillEnter() {
         this.lyrics = this.fetchLyrics();
     }
 
@@ -30,6 +36,8 @@ export class LyricsPage implements OnInit {
 
     fetchLyrics(): string {
         const currentTrackId = this.playerService.getCurrentTrackId();
+        this.songName = this.playerService.getCurrentTrackName();
+        this.artistName = this.playerService.getCurrentTrackArtist();
 
         this.apiService.fetchLyrics(currentTrackId).subscribe((data: IGetLyricsBody) => {
             this.lyrics = data.lyrics.lyrics_body;

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
+import _ from 'lodash';
 
 import { ITrack } from '../common/Interfaces';
 
@@ -29,6 +30,14 @@ export class PlayerService {
     }
 
     public getCurrentTrackId() {
-        return this.currentTrack.track_id;
+        return _.get(this.currentTrack, 'track_id', 0);
+    }
+
+    public getCurrentTrackName() {
+        return _.get(this.currentTrack, 'track_name', "Unknown");
+    }
+
+    public getCurrentTrackArtist() {
+        return _.get(this.currentTrack, 'artist_name', "Unknown");
     }
 }
