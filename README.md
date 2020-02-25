@@ -15,7 +15,7 @@ Angular + Ionic project to replicate the Spotify Mobile UI, however, renders the
 
   
 
-![Alt Text](https://media.giphy.com/media/ekvgZ28zJ62JlBzRv9/giphy.gif)
+![Alt Text](https://media.giphy.com/media/gjBQwLxCtvBxZ0Vn8n/giphy.gif)
 
   
 
