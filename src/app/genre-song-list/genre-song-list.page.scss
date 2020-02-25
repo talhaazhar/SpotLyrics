@@ -1,0 +1,68 @@
+.genre-song-tab {
+    display: flex;
+    flex-direction: row;
+    padding: 0 5%;
+    h3 {
+        flex: 2;
+    }
+}
+
+.close-logo {
+    display: flex;
+    align-items: center;
+}
+
+
+.genre-content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.album-art {
+    padding-top: 10%;
+    text-align: center;
+    width: 40%;
+}
+
+.shuffle-button {
+    background: blue;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 18px;
+    border-radius: 25px;
+}
+
+.search-result-tab {
+    display: flex;
+    padding: 5px 0;
+    width: 100%;
+
+    img {
+        height: 43px;
+    }
+
+    .search-result-text {
+        padding: 3px;
+        font-weight: bold;
+        ion-label:nth-child(2) {
+            font-weight: normal;
+            color: grey;
+            font-size: 13px;
+            padding-top: 2px;
+        }
+    }
+}
+
+ion-list {
+    width: 100%;
+    padding: 30px 3%;
+    ion-list-header {
+        font-size: 0.7em;
+        font-weight: bold;
+        padding: 0;
+    }
+}

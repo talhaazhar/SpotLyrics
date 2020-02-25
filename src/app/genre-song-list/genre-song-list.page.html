@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="genre-song-tab">
+      <h3>Genre List</h3>
+      <a class="close-logo" [routerLink]="[onClose()]">
+        <ion-icon style="zoom: 1.5;" ios="ios-close" md="md-close"></ion-icon>
+      </a>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="genre-content">
+    <img class="album-art" src="{{ genreDetails.icon }}">
+    <h6>{{genreDetails.name}}</h6>
+    <a class="shuffle-button">SHUFFLE PLAY</a>
+    <ion-list>
+      <ion-item class="ion-no-padding" *ngFor="let item of listToShow; let i = index">
+          <div class="search-result-tab" (click)="click_item(item)">
+              <img src="{{ item.album_coverart_100x100 || 'https://dalelyles.com/musicmp3s/no_cover.jpg'}}" />
+            <div class="search-result-text">
+                <ion-label>{{ item.track_name }}</ion-label>
+                <ion-label>{{ item.artist_name }}</ion-label>
+            </div>
+          </div>
+      </ion-item>
+  </ion-list>
+  </div>
+</ion-content>

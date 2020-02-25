@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, OnDestroy } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { ITrack } from '../../../common/Interfaces';
     templateUrl: './play-tab.component.html',
     styleUrls: ['./play-tab.component.scss'],
 })
-export class PlayTabComponent implements OnInit {
+export class PlayTabComponent implements OnInit, OnDestroy {
     currentTrack: ITrack = null;
     animationStatus: boolean = false;
     trackLyrics = null;

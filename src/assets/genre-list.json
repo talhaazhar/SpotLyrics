@@ -2,42 +2,52 @@
     "data": [
         {
             "name": "Blues",
+            "music_genre_id": 2,
             "icon": "https://images-na.ssl-images-amazon.com/images/I/51D52YHKZNL._SX463_BO1,204,203,200_.jpg"
         },
         {
             "name": "Country",
+            "music_genre_id": 6,
             "icon": "https://www.billboard.com/files/styles/900_wide/public/media/Wanted-The-Outlaws-Waylon-Jennings-Jessi-Colter-Willie-Nelson-Tompall-Glaser-album-covers-billboard-1000x1000.jpg"
         },
         {
             "name": "Dance",
+            "music_genre_id": 17,
             "icon": "https://upload.wikimedia.org/wikipedia/en/1/1f/Dance_Monkey_by_Tones_and_I.jpg"
         },
         {
             "name": "Hip-Hop",
-            "icon": "https://miro.medium.com/max/500/1*ZHytsEv0xXodLzXNN4tRDw.jpeg"
+            "music_genre_id": 1073,
+            "icon": "https://i.redd.it/7elyex16fha21.jpg"
         },
         {
             "name": "Jazz",
+            "music_genre_id": 11,
             "icon": "http://ecx.images-amazon.com/images/I/514yw9Xx7CL.jpg"
         },
         {
             "name": "Oldies",
-            "icon": "https://www.billboard.com/files/styles/900_wide/public/media/Elvis-Presley-Elvis-Presley-album-covers-billboard-1000x1000.jpg"
+            "music_genre_id": 1293,
+            "icon": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/rolling-stones-best-albums-1558720939.png?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*"
         },
         {
             "name": "Pop",
-            "icon": "https://www.billboard.com/files/styles/900_wide/public/media/Lady-Gaga-Fame-Monster-album-covers-billboard-1000x1000.jpg"
+            "music_genre_id": 14,
+            "icon": "https://www.billboard.com/files/media/1984-opener-pop-musics-best-year-bb36-billboard-650x650.jpg"
         },
         {
             "name": "R&B",
+            "music_genre_id": 15,
             "icon": "https://ww1.prweb.com/prfiles/2018/09/14/15764484/gI_108796_DSLowRes.png"
         },
         {
             "name": "Rock",
+            "music_genre_id": 21,
             "icon": "https://www.billboard.com/files/styles/900_wide/public/media/Green-Day-American-Idiot-album-covers-billboard-1000x1000.jpg"
         },
         {
             "name": "Techno",
+            "music_genre_id": 1050,
             "icon": "http://i.imgur.com/gELyrhH.jpg"
         }     
     ]

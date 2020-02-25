@@ -8,6 +8,7 @@ export interface ICacheObject {
 export interface IBaseGenre {
     name: string;
     icon: Url;
+    genreId: number;
 
     getCount(): number;
 }
@@ -19,6 +20,16 @@ export interface IGetSongName {
     q_track: string;
     quorum_factor: number;
     has_lyrics: number;
+    s_track_rating: string;
+}
+
+export interface IGetGenre {
+    apikey: string;
+    format: string;
+    callback: string;
+    f_music_genre_id: number;
+    quorum_factor: number;
+    page_size: number;
     s_track_rating: string;
 }
 

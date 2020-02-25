@@ -14,6 +14,7 @@ import {
     ICacheObject,
     IGetLyrics,
     IGetLyricsBody,
+    IGetGenre,
 } from '../common/Interfaces';
 
 const CORS_HOST: string = 'https://cors-anywhere.herokuapp.com/'; // a little hack, not good for prod.
@@ -45,7 +46,9 @@ export class ApiService {
         if (cache) {
             const cacheData: IResponse<T> = JSON.parse(cache);
             if (cacheData != null) {
-                this.loadingIndicator && this.loadingIndicator.dismiss();
+                setTimeout(async () => {
+                    this.loadingIndicator && (await this.loadingIndicator.dismiss());
+                }, 100);
                 return of(cacheData.message.body);
             }
         }
@@ -53,7 +56,7 @@ export class ApiService {
         return this.httpClient.get(fetchURL, { headers: this.headers }).pipe(
             finalize(async () => {
                 setTimeout(async () => {
-                    (await this.loadingIndicator) && this.loadingIndicator.dismiss();
+                    this.loadingIndicator && (await this.loadingIndicator.dismiss());
                 }, 800);
             }),
             map((data: IResponse<T>) => {
@@ -109,6 +112,22 @@ export class ApiService {
         return this.fetchMusixMatch<IGetLyricsBody>(queryURL, parameters);
     }
 
+    public fetchGenre(genreID: number) {
+        this.presentLoading();
+        LoadingController;
+        const queryURL: string = 'track.search?';
+        const parameters: IGetGenre = {
+            apikey: API_KEY,
+            format: 'json',
+            callback: 'callback',
+            f_music_genre_id: genreID,
+            quorum_factor: 1,
+            page_size: 10,
+            s_track_rating: 'desc',
+        };
+        return this.fetchMusixMatch<IGetSongNameBody>(queryURL, parameters);
+    }
+
     async presentLoading() {
         // Prepare a loading controller
         this.loadingIndicator = await this.loadingController.create({
@@ -117,4 +136,6 @@ export class ApiService {
 
         await this.loadingIndicator.present();
     }
+
+    
 }

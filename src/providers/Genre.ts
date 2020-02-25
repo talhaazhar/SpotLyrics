@@ -3,13 +3,15 @@ import { IBaseGenre } from '../common/Interfaces';
 
 export class Genre implements IBaseGenre {
 	public name: string;
-	public icon: Url;
+    public icon: Url;
+    public genreId: number;
 	private clickCount: number;
 
-	constructor(name: string, iconURL: string) {
+	constructor(name: string, iconURL: string, genreId: number) {
 		this.name = name;
 		this.icon = new URL(iconURL);
-		this.clickCount = 0;
+        this.clickCount = 0;
+        this.genreId = genreId;
 	}
 
 	public getCount(): number {

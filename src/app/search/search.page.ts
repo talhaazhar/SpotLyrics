@@ -18,8 +18,8 @@ export class SearchPage {
     getLinearBackground: Function = getLinearBackground;
     genreList: Genre[];
     colorList: any[] = ColorList;
-    list_to_show: ITrack[] = [];
-    show_list: boolean = false;
+    listToShow: ITrack[] = [];
+    showList: boolean = false;
 
     constructor(
         private genreService: GenreService,
@@ -36,16 +36,16 @@ export class SearchPage {
     }
 
     onCancel(): void {
-        this.show_list = false;
+        this.showList = false;
     }
 
     click_bar(): void {
-        this.show_list = true;
+        this.showList = true;
     }
 
     click_item(track: ITrack) {
         console.log(track);
-        this.show_list = false;
+        this.showList = false;
         this.playerService.updateTrack(track);
     }
 
@@ -54,7 +54,7 @@ export class SearchPage {
             const trackList = data.track_list.map(element => {
                 return element.track;
             });
-            this.list_to_show = trackList;
+            this.listToShow = trackList;
         });
     }
 }

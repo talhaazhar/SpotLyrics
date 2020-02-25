@@ -18,9 +18,9 @@
 </ion-header>
 
 <ion-content>
-    <div *ngIf="show_list">
+    <div *ngIf="showList">
         <ion-list>
-            <ion-item class="ion-no-padding" *ngFor="let item of list_to_show; let i = index">
+            <ion-item class="ion-no-padding" *ngFor="let item of listToShow; let i = index">
                 <div class="search-result-tab" (click)="click_item(item)">
                     <img src="{{ item.album_coverart_100x100 || 'https://dalelyles.com/musicmp3s/no_cover.jpg'}}" />
                   <div class="search-result-text">
@@ -31,7 +31,7 @@
             </ion-item>
         </ion-list>
     </div>
-    <ion-list *ngIf="!show_list">
+    <ion-list *ngIf="!showList">
         <ion-list-header>
             <ion-label>Your Top Genre</ion-label>
         </ion-list-header>
@@ -44,12 +44,14 @@
                 <ion-grid>
                     <ion-row class="genre-row">
                         <ion-col
+                            [routerLink]="['/tabs/genre-list', 'genre', genreList[i].genreId]"
                             [ngStyle]="getLinearBackground(colorList[(i) % colorList.length].rgba)"
                             *ngIf="i < genreList.length"
                         >
                             <genre-tab [genre]="genreList[i]"></genre-tab>
                         </ion-col>
                         <ion-col
+                            [routerLink]="['/tabs/genre-list', 'genre', genreList[i + 1].genreId]"
                             [ngStyle]="getLinearBackground(colorList[(i + 1) % colorList.length].rgba)"
                             *ngIf="i + 1 < genreList.length"
                         >

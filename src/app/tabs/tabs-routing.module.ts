@@ -48,6 +48,16 @@ const routes: Routes = [
                 ],
             },
             {
+                path: 'genre-list/genre/:id',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: () =>
+                            import('../genre-song-list/genre-song-list.module').then(m => m.GenreSongListPageModule),
+                    },
+                ],
+            },
+            {
                 path: '',
                 redirectTo: '/tabs/home-tab',
                 pathMatch: 'full',

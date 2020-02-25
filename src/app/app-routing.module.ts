@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'lyrics',
     loadChildren: () => import('./lyrics/lyrics.module').then( m => m.LyricsPageModule)
   },
+  {
+    path: 'genre-song-list',
+    loadChildren: () => import('./genre-song-list/genre-song-list.module').then( m => m.GenreSongListPageModule)
+  },
 ];
 @NgModule({
 	imports: [
