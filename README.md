@@ -1,5 +1,5 @@
 
-# Spotify Lyrics Clone
+# SpotLyrics (Spotify Clone, but for Lyrics)
 
   
 
