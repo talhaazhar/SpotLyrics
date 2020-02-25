@@ -23,11 +23,14 @@ export class LyricsPage implements OnInit {
     ) {}
 
     ngOnInit() {
-        
     }
 
     ionViewWillEnter() {
         this.lyrics = this.fetchLyrics();
+    }
+
+    ionViewWillLeave() {
+        this.playerService.toggleLyricsClose();
     }
 
     onClose() {
@@ -35,6 +38,7 @@ export class LyricsPage implements OnInit {
     }
 
     fetchLyrics(): string {
+        
         const currentTrackId = this.playerService.getCurrentTrackId();
         this.songName = this.playerService.getCurrentTrackName();
         this.artistName = this.playerService.getCurrentTrackArtist();
