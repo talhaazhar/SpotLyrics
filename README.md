@@ -36,6 +36,6 @@ Angular + Ionic project to replicate the Spotify Mobile UI, however, renders the
   5. Run `ionic cordova run android`
 
 ## Current Road-map
-1. Add Genre fetch
-2. Add creating playlists
-3. Add Exploring new music
+1. Add Creating Playlists
+2. Add Exploring new music
+3. Add Personalization
