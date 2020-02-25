@@ -84,11 +84,11 @@ ion-toolbar {
 }
 
 .play-rotate-normal {
-    -moz-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg) 2s;
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg) 2s;
     -webkit-transition: all 2s ease;  
     -moz-transition: all 2s ease;  
     -o-transition: all 2s ease;  

@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {
+    trigger,
+    state,
+    style,
+    animate,
+    transition,
+  } from '@angular/animations';
 
 import { ApiService } from '../../services/api.service';
 import { PlayerService } from '../../services/player.service';
@@ -10,6 +17,14 @@ import { IGetLyricsBody } from '../../common/Interfaces';
     selector: 'app-lyrics',
     templateUrl: './lyrics.page.html',
     styleUrls: ['./lyrics.page.scss'],
+    animations: [
+        trigger('fade-in', [
+            state('void', style({opacity: 0})),
+            transition('void => *', [
+                animate('900ms 300ms ease-out', style({opacity: 100}))
+            ])
+        ]),
+    ]
 })
 export class LyricsPage implements OnInit {
     lyrics: string = 'No Lyrics Available';
